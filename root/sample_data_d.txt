@@ -1,0 +1,38 @@
+﻿이것은 sample_data_d ! 그리고 이것의 용량은3 중 하나를 선택하여 2인 1조 팀원이 협동 개발함.
+○ DFS 서비스의 클라이언트 쪽 미들웨어 기능은 (1) 클라이언트 응용에 라이브러리 형태로 응용에 포함할 수도 있고 (2) 별도의 service (daemon) process로 실행될 수도 있음. 이 외에도 다른 구현도 가능하며, 방법은 각자 선택함 
+○ DFS 서비스는 stateful file service로 해도 되고 stateless file service 로 구현해도 됨. 각자 선택해 구현함 
+○ Client 컴퓨터가 아닌 다른 컴퓨터에 file server가 실행되게 함. 따라서 문제 1,2는 두 대의 컴퓨터를 이용하고 문제 3은 3대를 이용함. 
+
+○ 파일 서버의 디스크에는 임의의 내용을 가진 1~5 KB 정도 크기의 샘플 텍스트 파일들을 5개 만들어 놓음. 이 파일 중 하나는 testdata.txt 라는 이름의 파일이도록 준비함
+
+① remote fi2017.10.31.
+
+프로그래밍 실습(텀 프로젝트) 작성 지침 
+
+MFDFS(My First DFS) 분산파일시스템(Distributed File System) 
+
+2017.10.31.
+
+프로그래밍 실습(텀 프로젝트) 작성 지침 
+
+MFDFS(My First DFS) 분산파일시스템(Distributed File System) 
+
+
+■ 서비스 요구사항
+○ Client 컴퓨터에서 실행되는 응용 프로세스가 다른 컴퓨터의 스토리지 자원을 공유할 수 있게 함
+○ Remote file server에 존재하는 파일에 클라이언트 응용 프로세스가 액세스하여 파일 내용을 Read / Write할 수 있고 remote directory에 들은 파일 목록을 읽을 수 있음 (문제 1)
+○ Client 응용 프로세스는, 다른 컴퓨터의 스토리지 자원에 접근(access)할 수 있게 지원하는 미들웨어를 통해 다른 컴퓨터의 스토리지 자원을 이용함
+○ 서비스 가용성을 높이기 위해 파일 서버는 2중화하되, 클라이언트 응용 프로세스는 2중화된 것을 의식하지 못함 (replication transparency)
+○ 한 파일 서버에 변경된 파일 내용은 500msec 이내에 다른 replicated server와 동기화 되어야 함 (문제 2)
+○ Client 는 보통은 자신의 default(primary) server 와만 상대함. 그러나 자신의 primary 서버가 반응하지 않으면 2sec 이내에 secondary file server로 접근함 (문제 3)
+○ 기타 성능 요구사항 : 없음
+○ 비용 요구사항 : 없음 
+■ 서비스 요구사항
+○ Client 컴퓨터에서 실행되는 응용 프로세스가 다른 컴퓨터의 스토리지 자원을 공유할 수 있게 함
+○ Remote file server에 존재하는 파일에 클라이언트 응용 프로세스가 액세스하여 파일 내용을 Read / Write할 수 있고 remote directory에 들은 파일 목록을 읽을 수 있음 (문제 1)
+○ Client 응용 프로세스는, 다른 컴퓨터의 스토리지 자원에 접근(access)할 수 있게 지원하는 미들웨어를 통해 다른 컴퓨터의 스토리지 자원을 이용함
+○ 서비스 가용성을 높이기 위해 파일 서버는 2중화하되, 클라이언트 응용 프로세스는 2중화된 것을 의식하지 못함 (replication transparency)
+○ 한 파일 서버에 변경된 파일 내용은 500msec 이내에 다른 replicated server와 동기화 되어야 함 (문제 2)
+○ Client 는 보통은 자신의 default(primary) server 와만 상대함. 그러나 자신의 primary 서버가 반응하지 않으면 2sec 이내에 secondary file server로 접근함 (문제 3)
+○ 기타 성능 요구사항 : 없음
+○ 비용 요구사항 : 없음 le server의 디렉토리 내용을 읽어와 local file s
